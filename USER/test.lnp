@@ -1,0 +1,5 @@
+--cpu Cortex-M3 "startup_stm32f10x_hd.o" "test.o" "usart_communication.o" "draw.o" "accept_coordinate.o" "coordinate_pwm.o" "improved_motion_strategy.o" "cos.o" "delay.o" "sys.o" "usart.o" "usart2.o" "beep.o" "key.o" "exti.o" "wdg.o" "timer1.o" "gpio.o" 
+--strict --scatter "test.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list "..\OBJ\test.map" -o test.axf

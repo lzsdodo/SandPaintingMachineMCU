@@ -1,0 +1,12 @@
+coordinate_pwm.o: coordinate_PWM.c
+coordinate_pwm.o: coordinate_PWM.h
+coordinate_pwm.o: ..\SYSTEM\sys\sys.h
+coordinate_pwm.o: ..\SYSTEM\sys\stm32f10x_map.h
+coordinate_pwm.o: ..\SYSTEM\sys\stm32f10x_conf.h
+coordinate_pwm.o: ..\SYSTEM\sys\stm32f10x_type.h
+coordinate_pwm.o: ..\SYSTEM\sys\cortexm3_macro.h
+coordinate_pwm.o: ..\SYSTEM\sys\stm32f10x_nvic.h
+coordinate_pwm.o: accept_coordinate.h
+coordinate_pwm.o: usart_communication.h
+coordinate_pwm.o: ..\SYSTEM\usart\usart.h
+coordinate_pwm.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h

@@ -1,0 +1,37 @@
+*** Creating Trace Output File 'test.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '"startup_stm32f10x_hd.o"'
+### List of Objects: adding '"test.o"'
+### List of Objects: adding '"usart_communication.o"'
+### List of Objects: adding '"draw.o"'
+### List of Objects: adding '"accept_coordinate.o"'
+### List of Objects: adding '"coordinate_pwm.o"'
+### List of Objects: adding '"improved_motion_strategy.o"'
+### List of Objects: adding '"cos.o"'
+### List of Objects: adding '"delay.o"'
+### List of Objects: adding '"sys.o"'
+### List of Objects: adding '"usart.o"'
+### List of Objects: adding '"usart2.o"'
+### List of Objects: adding '"beep.o"'
+### List of Objects: adding '"key.o"'
+### List of Objects: adding '"exti.o"'
+### List of Objects: adding '"wdg.o"'
+### List of Objects: adding '"timer1.o"'
+### List of Objects: adding '"gpio.o"'
+### ADS-LD Command completed:
+--cpu Cortex-M3 "startup_stm32f10x_hd.o" "test.o" "usart_communication.o" "draw.o" "accept_coordinate.o" "coordinate_pwm.o" "improved_motion_strategy.o" "cos.o" "delay.o" "sys.o" "usart.o" "usart2.o" "beep.o" "key.o" "exti.o" "wdg.o" "timer1.o" "gpio.o" 
+--strict --scatter "test.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list "..\OBJ\test.map" -o test.axf### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: 'test.axf'
+### ADS-LD Command File: 'test.lnp'
+### Checking for dirty Components...
+### Creating CmdFile 'test.lnp', Handle=0x00000C04
+### Writing '.lnp' file
+### ADS-LD Command file 'test.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

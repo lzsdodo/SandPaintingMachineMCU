@@ -1,0 +1,9 @@
+usart2.o: ..\SYSTEM\usart\usart2.c
+usart2.o: ..\SYSTEM\sys\sys.h
+usart2.o: ..\SYSTEM\sys\stm32f10x_map.h
+usart2.o: ..\SYSTEM\sys\stm32f10x_conf.h
+usart2.o: ..\SYSTEM\sys\stm32f10x_type.h
+usart2.o: ..\SYSTEM\sys\cortexm3_macro.h
+usart2.o: ..\SYSTEM\sys\stm32f10x_nvic.h
+usart2.o: ..\SYSTEM\usart\usart2.h
+usart2.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h

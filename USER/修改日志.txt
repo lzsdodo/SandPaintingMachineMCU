@@ -1,0 +1,35 @@
+修改日志:
+14.07.05
+improved_motion_strategy.h&.c中
+.h中：    
+运动参数结构体中加入坐标信息：
+	struct Move_parameter
+	备份定义：
+	/*
+		该结构体用于存储定时器的ARR寄存器值，即定时器的频率。
+		移动到下一个点定时器所需输出的脉冲个数,总之就是移动到下一个点所需的参数。
+	*/
+	struct Move_parameter{
+		u16 TIM_ARR[JIASU_STEP];	//定时器1不同阶段ARR寄存器的值 输出频率以定时器1为准
+		int PWM_counter_needed_X;	//X轴需要输出的PWM脉冲个数
+		int PWM_counter_needed_Y;	//Y轴需要输出的PWM个数
+		int PWM_counter_needed_Z;	//Z轴需要输出的PWM个数
+		u16 dir_x;								//X轴方向
+		u16 dir_y;								//Y轴方向
+		u16 dir_z;								//Z轴方向
+		u16 guaxian;							//确定是在哪一个卦限
+		int PWM_counter_part[JIASU_STEP];//X轴各阶段要输出的PWM脉冲个数
+		float encoder[JIASU_STEP];//各阶段编码器的值,将根据X轴来调节频率
+	};
+.c中：
+转移函数中Copy_Move_parameter(...)
+添加此段
+	mp1->Now_Position_X = mp2->Now_Position_X;
+	mp1->Now_Position_Y = mp2->Now_Position_Y;
+	mp1->Now_Position_Z = mp2->Now_Position_Z;
+
+
+timer1.c中
+TIM5_IRQHandler中断函数加入取出下个坐标的动作
+准备和校验计算，然后添加把坐标信息转换成数据包，并发送
+未经检验...

@@ -1,0 +1,11 @@
+usart_communication.o: usart_communication.c
+usart_communication.o: usart_communication.h
+usart_communication.o: ..\SYSTEM\sys\sys.h
+usart_communication.o: ..\SYSTEM\sys\stm32f10x_map.h
+usart_communication.o: ..\SYSTEM\sys\stm32f10x_conf.h
+usart_communication.o: ..\SYSTEM\sys\stm32f10x_type.h
+usart_communication.o: ..\SYSTEM\sys\cortexm3_macro.h
+usart_communication.o: ..\SYSTEM\sys\stm32f10x_nvic.h
+usart_communication.o: ..\SYSTEM\usart\usart.h
+usart_communication.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+usart_communication.o: accept_coordinate.h

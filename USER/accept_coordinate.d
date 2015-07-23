@@ -1,0 +1,12 @@
+accept_coordinate.o: accept_coordinate.c
+accept_coordinate.o: accept_coordinate.h
+accept_coordinate.o: ..\SYSTEM\sys\sys.h
+accept_coordinate.o: ..\SYSTEM\sys\stm32f10x_map.h
+accept_coordinate.o: ..\SYSTEM\sys\stm32f10x_conf.h
+accept_coordinate.o: ..\SYSTEM\sys\stm32f10x_type.h
+accept_coordinate.o: ..\SYSTEM\sys\cortexm3_macro.h
+accept_coordinate.o: ..\SYSTEM\sys\stm32f10x_nvic.h
+accept_coordinate.o: usart_communication.h
+accept_coordinate.o: ..\SYSTEM\usart\usart.h
+accept_coordinate.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+accept_coordinate.o: ..\SYSTEM\delay\delay.h

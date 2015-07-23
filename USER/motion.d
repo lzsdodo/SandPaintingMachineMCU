@@ -1,0 +1,17 @@
+motion.o: motion.c
+motion.o: motion.h
+motion.o: ..\SYSTEM\sys\sys.h
+motion.o: ..\SYSTEM\sys\stm32f10x_map.h
+motion.o: ..\SYSTEM\sys\stm32f10x_conf.h
+motion.o: ..\SYSTEM\sys\stm32f10x_type.h
+motion.o: ..\SYSTEM\sys\cortexm3_macro.h
+motion.o: ..\SYSTEM\sys\stm32f10x_nvic.h
+motion.o: accept_coordinate.h
+motion.o: usart_communication.h
+motion.o: ..\SYSTEM\usart\usart.h
+motion.o: D:\keil4\ARM\ARMCC\bin\..\include\stdio.h
+motion.o: ..\HARDWARE\TIMER\timer.h
+motion.o: coordinate_PWM.h
+motion.o: draw.h
+motion.o: ..\SYSTEM\delay\delay.h
+motion.o: ..\HARDWARE\LED\led.h

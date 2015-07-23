@@ -1,0 +1,133 @@
+//¨ª¨º3¨¦¨¦¡§¨¦3
+void clean()
+{
+	const int Z_MOVE_PWM_NUMBER=3410;//z?¨¢¨°??¡¥¨¦¨¨?¡§¦Ì??¨¤¨¤??¨´D¨¨¨º?3?¦Ì???3???¨ºy,?¨°??¨°??¡¥1CM
+	const int Y_MOVE_PWM_NUMBER=126170;//X?¨¢¨°??¡¥?¨¤¨¤?
+	const int X_MOVE_PWM_NUMBER=17050;//Y?¨¢¨°??¡¥?¨¤¨¤?
+	u32 speed=30;
+	int i=0,j=0;
+	
+	//Z?¨¢PWM??3?¨º?3?¨°y??
+	GPIOB->CRL&=0x0FFFFFFF;
+	GPIOB->CRL|=0x30000000;//PB7¨ª?¨ª¨¬¨º?3?
+	GPIOB->ODR|=1<<7;
+	
+	//Z?¨¢?¨¨?¨°??¨°??¡¥
+	DIR_Z=RETREAT;
+	for(i=0;i<Z_MOVE_PWM_NUMBER;i++)
+	{
+		PWM_OUT_Z=(!PWM_OUT_Z);
+		delay_us(60);
+		PWM_OUT_Z=(!PWM_OUT_Z);
+		delay_us(60);
+	}
+	
+	if((Position_x!=0)||(Position_y!=0)||(Position_z!=0))//¨¨?2??¨²?-¦Ì??¨°??¦Ì??-¦Ì?,¨¨?o¨®?a¨º?¨¦¡§¨¦3
+	{
+		Go_to_origin();
+	}
+	
+	for(i=0;i<8;i++)
+	{
+		//?¡é¡Á¨®???¦Ì
+		DIR_Z=RETREAT;
+		for(j=0;j<Z_MOVE_PWM_NUMBER;j++)
+		{
+			if((LIMITER_Z_1==0)||(LIMITER_Z_2==0))
+			{
+				delay_us(5);
+				if((LIMITER_Z_2==0)||(LIMITER_Z_1==0))
+				{
+					break;
+				}
+			}
+			PWM_OUT_Z=(!PWM_OUT_Z);
+			delay_us(40);
+			PWM_OUT_Z=(!PWM_OUT_Z);
+			delay_us(40);
+		}
+		
+		//¨¦¡§¨°?¨¢D
+		DIR_X=ADVANCE;
+		for(j=0;j<Y_MOVE_PWM_NUMBER;j++)
+		{
+			if((LIMITER_Y_1==0)||(LIMITER_Y_2==0))
+			{
+				delay_us(5);
+				if((LIMITER_Y_2==0)||(LIMITER_Y_1==0))
+				{
+					break;
+				}
+			}
+			if((Y_MOVE_PWM_NUMBER-j)<200)
+			{
+				speed=100;
+			}
+			PWM_OUT_Y=(!PWM_OUT_Y);
+			delay_us(speed);
+			PWM_OUT_Y=(!PWM_OUT_Y);
+			delay_us(speed);
+		}
+		
+		//?¡é¡Á¨®¨¬¡ì?e
+		DIR_Z=ADVANCE;
+		for(j=0;j<Z_MOVE_PWM_NUMBER;j++)
+		{
+			if((LIMITER_Z_1==0)||(LIMITER_Z_2==0))
+			{
+				delay_us(5);
+				if((LIMITER_Z_2==0)||(LIMITER_Z_1==0))
+				{
+					break;
+				}
+			}
+			PWM_OUT_Z=(!PWM_OUT_Z);
+			delay_us(40);
+			PWM_OUT_Z=(!PWM_OUT_Z);
+			delay_us(40);
+		}
+		
+		//??¦Ì?Y=0¡ä|,?¡é¡Á¨®¡¤¦Ì??
+		DIR_Y=RETREAT;
+		for(j=0;j<Y_MOVE_PWM_NUMBER;j++)
+		{
+				if((LIMITER_Y_1==0)||(LIMITER_Y_2==0))
+				{
+					delay_us(5);
+					if((LIMITER_Y_2==0)||(LIMITER_Y_1==0))
+					{
+						break;
+					}
+				}
+			if((Y_MOVE_PWM_NUMBER-j)<200)
+			{
+				speed=100;
+			}
+			PWM_OUT_Y=(!PWM_OUT_Y);
+			delay_us(speed);
+			PWM_OUT_Y=(!PWM_OUT_Y);
+			delay_us(speed);
+		}
+		
+		//X?¨¢¨°??¡¥¨°?2?
+		DIR_X=ADVANCE;
+		for(j=0;j<X_MOVE_PWM_NUMBER;j++)
+		{
+			if((LIMITER_X_1==0)||(LIMITER_X_2==0))
+			{
+				delay_us(5);
+				if((LIMITER_X_2==0)||(LIMITER_X_1==0))
+				{
+					break;
+				}
+			}
+			PWM_OUT_X=(!PWM_OUT_X);
+			delay_us(30);
+			PWM_OUT_X=(!PWM_OUT_X);
+			delay_us(30);
+		}	
+	}
+	
+	//¡¤¦Ì???-¦Ì?
+	Go_to_origin();
+}
